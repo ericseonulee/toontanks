@@ -14,7 +14,9 @@ ATank::ATank() {
 }
 
 void ATank::Move(float Value) {
-
+    FVector DeltaLocation = FVector::ZeroVector;
+    DeltaLocation.X = Value;
+    AddActorLocalOffset(DeltaLocation);
 }
 
 // Called to bind functionality to input
