@@ -14,6 +14,13 @@ ATank::ATank() {
     Camera->SetupAttachment(SpringArm);
 }
 
+void ATank::BeginPlay() {
+    Super::BeginPlay();
+
+    PlayerControllerRef = Cast<APlayerController>(GetController());
+}
+
+
 void ATank::Move(float Value) {
     FVector DeltaLocation = FVector::ZeroVector;
     DeltaLocation.X = Value * Speed * UGameplayStatics::GetWorldDeltaSeconds(this);
