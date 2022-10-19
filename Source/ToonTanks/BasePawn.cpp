@@ -21,7 +21,9 @@ ABasePawn::ABasePawn() {
 	ProjectileSpawnPoint->SetupAttachment(TurretMesh);
 }
 
-// Called every frame
-void ABasePawn::Tick(float DeltaTime) {
-    Super::Tick(DeltaTime);
+void ABasePawn::RotateTurret(FVector LookatTarget) {
+	FVector ToTarget = LookatTarget - TurretMesh->GetComponentLocation();
+	FRotator LookAtRotation = FRotator(0.f, ToTarget.Rotation().Yaw, 0.f);;
+	
+	TurretMesh->SetWorldRotation(LookAtRotation);
 }
