@@ -32,6 +32,10 @@ void ABasePawn::Fire() {
 	Projectile->SetOwner(this);
 }
 
+void ABasePawn::HandleDestruction() {
+	// visual/sound effects of the pawn
+}
+
 void ABasePawn::RotateTurret(FVector LookatTarget) {
 	FVector ToTarget = LookatTarget - TurretMesh->GetComponentLocation();
 	FRotator LookAtRotation = FRotator(0.f, ToTarget.Rotation().Yaw, 0.f);;
