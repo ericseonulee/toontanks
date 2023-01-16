@@ -40,6 +40,10 @@ void ABasePawn::HandleDestruction() {
 	if (DeathSound) {
 		UGameplayStatics::PlaySoundAtLocation(this, DeathSound, GetActorLocation());
 	}
+	if (DeathCameraShakeClass) {
+		GetWorld()->GetFirstPlayerController()->ClientPlayCameraShake(DeathCameraShakeClass);
+	}
+
 }
 
 void ABasePawn::RotateTurret(FVector LookatTarget) {

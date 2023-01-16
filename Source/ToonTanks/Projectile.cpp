@@ -31,6 +31,10 @@ void AProjectile::BeginPlay() {
 	ProjectileMesh->OnComponentHit.AddDynamic(this, &AProjectile::OnHit);
 
 	UGameplayStatics::PlaySoundAtLocation(this, LaunchSound, GetActorLocation());
+
+	if (LaunchCameraShakeClass) {
+		GetWorld()->GetFirstPlayerController()->ClientStartCameraShake(LaunchCameraShakeClass);
+	}
 }
 
 // Called every frame
